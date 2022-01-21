@@ -7,7 +7,7 @@
                 <span class="title ml-2">Crece</span>
             </a>
 
-            <a @click="openSidebar()" class="navbar-item is-hidden-desktop is-hidden-tablet">
+            <a @click="openSidebar()" class="navbar-item is-hidden-desktop is-hidden-tablet is-hidden">
                 <div id="menu-icon-wrapper" class="menu-icon-wrapper" style="visibility: visible;" :class="{
                         'open': $store.app.isSiderbarOpen,
                         '': !$store.app.isSiderbarOpen
@@ -23,19 +23,15 @@
                 </div>
             </a>
 
-            <div class="navbar-burger" @click="openMobileMenu()">
-                <span class="menu-toggle">
-                    <span class="icon-box-toggle" :class="{
-                            'active': mobileOpen,
-                            '': !mobileOpen
-                        }">
-                        <span class="rotate">
-                            <i class="icon-line-top"></i>
-                            <i class="icon-line-center"></i>
-                            <i class="icon-line-bottom"></i>
-                        </span>
-                    </span>
-            </div>
+
+            <a role="button" class="navbar-burger" @click="openMobileMenu()" aria-label="menu" aria-expanded="false" :class="{
+                'is-active': mobileOpen,
+                '': !mobileOpen
+            }">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
         </div>
 
         <div id="navbar-menu" class="navbar-menu is-static" :class="{
