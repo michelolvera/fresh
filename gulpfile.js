@@ -173,6 +173,4 @@ exports.prod = series(
     devClean, // Clean Dist Folder
     resetPages,
     parallel(concatCssPlugins, compileSCSS, javascriptBuild, devImages, compileHTML),
-    livePreview, // Live Preview Build
-    watchFiles // Watch for Live Changes
 );
