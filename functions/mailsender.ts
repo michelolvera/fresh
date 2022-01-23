@@ -3,7 +3,7 @@ import nodemailer from 'nodemailer';
 import {HTTP_STATUS_OK} from "@netlify/functions/dist/lib/consts";
 
 const handler: Handler = async (event, context) => {
-    const messageData = JSON.parse(event.body!!).data;
+    const messageData = JSON.parse(event.body!!);
     const user: string = "centroafree@outlook.com";
     const pass: string = "NENE050613:33";
     const host: string = "smtp.office365.com";
