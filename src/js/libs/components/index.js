@@ -11,7 +11,7 @@ window.initForm = function (){
     return {
         sendedMail: false,
         alertsHidden: true,
-        sendMail() {
+        sendMail: async function () {
             const url = "https://www.crececonsultoria.com/.netlify/functions/mailsender"
             let formData = new FormData(document.getElementById("contact-form"));
             let requestObject = {};
@@ -21,17 +21,14 @@ window.initForm = function (){
 
             let request = JSON.stringify(requestObject);
             console.log("Mail to send: %s", request);
-            let okResponse = false;
-            axios.post(url, request).then(function (response){
-                if (response.status === 200){
-                    okResponse = true;
-                    console.log("Sended mail");
-                }else {
-                    okResponse = false;
-                    console.log("Error mail");
-                }
-            });
-            this.sendedMail = okResponse;
+            let response = await axios.post(url, request);
+            if (response.status === 200){
+                this.sendedMail = true;
+                console.log("Sended mail");
+            }else {
+                this.sendedMail = false;
+                console.log("Error mail");
+            }
             this.alertsHidden = false;
         },
     }
