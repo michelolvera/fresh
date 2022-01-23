@@ -13,6 +13,7 @@
     "axios": "^0.25.0",
     "bulma": "^0.9.3",
     "codemirror": "^5.58.3",
+    "core-js": "^3.20.3",
     "feather-icons": "^4.24.0",
     "ionicons": "^5.2.3",
     "js-datepicker": "^5.16.0",

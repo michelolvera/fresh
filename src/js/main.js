@@ -4,6 +4,8 @@
 import Alpine from "alpinejs";
 import intersect from "@alpinejs/intersect";
 import Fern from "@ryangjchandler/fern";
+import "core-js/stable";
+import "regenerator-runtime/runtime";
 
 window.Alpine = Alpine;
 //Init intersect plugin

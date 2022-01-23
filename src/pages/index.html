@@ -394,7 +394,7 @@ title: Inicio
         <div class="content-wrapper" x-data="initForm()">
             <div class="columns">
                 <div class="column is-6 is-offset-3">
-                    <form @submit.prevent="await sendMail()" id="contact-form">
+                    <form @submit.prevent="sendMail" id="contact-form">
                         <div class="columns is-multiline">
                             <div class="column is-12"  :class="{
                                 'is-hidden': alertsHidden || !sendedMail
