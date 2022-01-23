@@ -21,16 +21,17 @@ window.initForm = function (){
 
             let request = JSON.stringify(requestObject);
             console.log("Mail to send: %s", request);
-
+            let okResponse = false;
             axios.post(url, request).then(function (response){
                 if (response.status === 200){
-                    this.sendedMail = true;
+                    okResponse = true;
                     console.log("Sended mail");
                 }else {
-                    this.sendedMail = false;
+                    okResponse = false;
                     console.log("Error mail");
                 }
             });
+            this.sendedMail = okResponse;
             this.alertsHidden = false;
         },
     }
