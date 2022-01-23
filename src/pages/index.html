@@ -383,37 +383,55 @@ title: Inicio
     </div>
 </section>
 
-<section class="section section-light-grey is-medium is-hidden">
+<section class="section section-light-grey is-medium">
     <div class="container">
         <div class="title-wrapper has-text-centered">
-            <h2 class="title is-2 is-spaced">Drop us a line or two </h2>
-            <h3 class="subtitle is-5 is-muted">We'd love to hear from You</h3>
+            <h2 class="title is-2 is-spaced">Contáctanos</h2>
+            <h3 class="subtitle is-5 is-muted">Nos encantaría escuchar de ti</h3>
             <div class="divider is-centered"></div>
         </div>
 
-        <div class="content-wrapper">
+        <div class="content-wrapper" x-data="initForm()">
             <div class="columns">
                 <div class="column is-6 is-offset-3">
-                    <form>
+                    <form @submit.prevent="sendMail()" id="contact-form">
                         <div class="columns is-multiline">
-                            <div class="column is-6">
-                                <input class="input is-medium" type="text" placeholder="First Name *">
+                            <div class="column is-12"  :class="{
+                                'is-hidden': alertsHidden || !sendedMail
+                            }">
+                                <article class="message is-success">
+                                    <div class="message-body">
+                                        <strong>Correo enviado correctamente</strong>, te responderemos en cuanto no sea posible.
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="column is-12"  :class="{
+                                'is-hidden': alertsHidden || sendedMail
+                            }">
+                                <article class="message is-danger">
+                                    <div class="message-body">
+                                        <strong>Tuvimos problemas al enviar el mensaje</strong>, reintenta nuevamente.
+                                    </div>
+                                </article>
                             </div>
                             <div class="column is-6">
-                                <input class="input is-medium" type="text" placeholder="Last Name *">
+                                <input name="mail" class="input is-medium" required type="text" placeholder="Nombre completo">
                             </div>
                             <div class="column is-6">
-                                <input class="input is-medium" type="text" placeholder="Email *">
+                                <input name="phone" class="input is-medium" required type="tel" minlength="10" maxlength="13" placeholder="Teléfono a 10 dígitos">
                             </div>
                             <div class="column is-6">
-                                <input class="input is-medium" type="email" placeholder="Company">
+                                <input name="mail" class="input is-medium" required type="email" placeholder="Correo">
+                            </div>
+                            <div class="column is-6">
+                                <input name="subject" class="input is-medium" required type="text" placeholder="Asunto">
                             </div>
                             <div class="column is-12">
-                                <textarea class="textarea" rows="6" placeholder=""></textarea>
+                                <textarea name="message" class="textarea" rows="6" placeholder=""></textarea>
                             </div>
                             <div class="column is-12">
                                 <div class="form-footer has-text-right mt-10">
-                                    <button class="button cta is-large primary-btn form-button raised is-clear">Send Message</button>
+                                    <button class="button cta is-large primary-btn form-button raised is-clear">Enviar mensaje</button>
                                 </div>
                             </div>
                         </div>
