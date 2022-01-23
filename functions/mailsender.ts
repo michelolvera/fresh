@@ -23,7 +23,7 @@ const handler: Handler = async (event, context) => {
 
     let info = await transporter.sendMail({
         from: user, // sender address
-        to: "ogarcia@crececonsultoria.com", // list of receivers
+        to: "gorozco@crececonsultoria.com", // list of receivers
         replyTo: messageData.mail,
         subject: messageData.subject, // Subject line
         html: `<p>Nombre: ${messageData.name}</p>`
