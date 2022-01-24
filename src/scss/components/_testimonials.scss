@@ -4,10 +4,9 @@ Testimonials Styles
 
 .testimonial {
     position: relative;
-    overflow: hidden;
     margin: 10px auto;
     min-width: 220px;
-    max-width: 310px;
+    max-width: 700px;
     width: 100%;
     color: #333;
     text-align: left;
@@ -30,16 +29,15 @@ Testimonials Styles
         right: 60%;
     }
 
-    blockquote {
+    div {
         margin: 0;
         display: block;
         border-radius: 8px;
         position: relative;
         background-color: $smoke-white;
-        padding: 30px 50px 65px 50px;
+        padding: 30px 50px;
         font-size: 1.2rem;
         font-weight: 500;
-        margin: 0 0 -40px;
         line-height: 1.6em;
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
     }
