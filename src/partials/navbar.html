@@ -7,7 +7,7 @@
                 <span class="title ml-2">Crece</span>
             </a>
 
-            <a @click="openSidebar()" class="navbar-item is-hidden-desktop is-hidden-tablet is-hidden">
+            <a @click="openSidebar()" class="navbar-item is-hidden">
                 <div id="menu-icon-wrapper" class="menu-icon-wrapper" style="visibility: visible;" :class="{
                         'open': $store.app.isSiderbarOpen,
                         '': !$store.app.isSiderbarOpen
@@ -40,7 +40,7 @@
             }">
 
             <div class="navbar-start is-hidden">
-                <a @click="openSidebar()" class="navbar-item is-hidden-mobile">
+                <a @click="openSidebar()" class="navbar-item is-hidden">
                     <div id="menu-icon-wrapper" class="menu-icon-wrapper" style="visibility: visible;" :class="{
                             'open': $store.app.isSiderbarOpen,
                             '': !$store.app.isSiderbarOpen
