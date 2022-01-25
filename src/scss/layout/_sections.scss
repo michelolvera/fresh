@@ -100,7 +100,6 @@ Section Styles
     &:hover {
         .icon-wrap {
             transform: translateY(-5px);
-            box-shadow: $light-shadow;
 
             ion-icon {
                 color: $secondary;
@@ -111,8 +110,6 @@ Section Styles
     .icon-wrap {
         height: 60px;
         width: 60px;
-        border-radius: 50%;
-        border: 1px solid darken($fade-grey, 4%);
         display: flex;
         justify-content: center;
         align-items: center;
