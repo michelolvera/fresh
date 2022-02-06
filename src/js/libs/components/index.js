@@ -2,6 +2,7 @@ import { initNavbar } from './navbar/navbar';
 import { initSidebar } from './sidebar/sidebar';
 import { initBackToTop } from './backtotop/backtotop';
 import axios from 'axios'
+import bulmaCarousel from 'bulma-carousel/dist/js/bulma-carousel.min';
 
 window.initNavbar = initNavbar;
 window.initSidebar = initSidebar;
@@ -37,3 +38,6 @@ window.initForm = function (){
         },
     }
 }
+
+// Initialize all elements with carousel class.
+window.carousels = bulmaCarousel.attach('.carousel');

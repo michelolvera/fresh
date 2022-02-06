@@ -6,6 +6,7 @@ Main SCSS file / Fresh
 @import 'abstracts/animations';
 
 @import "../sass/bulma";
+@import "./node_modules/bulma-carousel/src/sass/index";
 
 @import 'layout/navbar';
 @import 'layout/sidebar';
