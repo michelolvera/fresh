@@ -15,29 +15,11 @@ title: Inicio
             <h2 class="title is-2">Solicitud de Empleo</h2>
             <div class="divider is-centered"></div>
         </div>
-        <div class="content-wrapper" x-data="initForm()">
+        <div class="content-wrapper" x-data="initFormSolicitud()">
             <div class="columns">
                 <div class="column is-8 mx-auto">
                     <form @submit.prevent="sendMail" id="solicitud-form">
                         <div class="columns is-multiline">
-                            <div class="column is-12"  :class="{
-                                'is-hidden': alertsHidden || !sendedMail
-                            }">
-                                <article class="message is-success">
-                                    <div class="message-body">
-                                        <strong>Solicitud enviada correctamente</strong>, te contactaremos en cuanto nos sea posible.
-                                    </div>
-                                </article>
-                            </div>
-                            <div class="column is-12"  :class="{
-                                'is-hidden': alertsHidden || sendedMail
-                            }">
-                                <article class="message is-danger">
-                                    <div class="message-body">
-                                        <strong>Tuvimos problemas al enviar tu solicitud</strong>, reintenta nuevamente.
-                                    </div>
-                                </article>
-                            </div>
                             <div class="column is-6">
                                 <label>Fecha
                                     <input name="date" class="input is-medium" required type="date">
@@ -1277,6 +1259,25 @@ title: Inicio
                                     <input class="mr-3" type="checkbox" name="deveritas" required>
                                     <strong>La información proporcionada en esta solicitud de empleo será utilizada con fines de participar en el proceso de selección para la vacante solicitada en la presente, acepto que toda la información que proporcione es verdadera.</strong>
                                 </label>
+                            </div>
+
+                            <div class="column is-12"  :class="{
+                                'is-hidden': alertsHidden || !sendedMail
+                            }">
+                                <article class="message is-success">
+                                    <div class="message-body">
+                                        <strong>Solicitud enviada correctamente</strong>, te contactaremos en cuanto nos sea posible.
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="column is-12"  :class="{
+                                'is-hidden': alertsHidden || sendedMail
+                            }">
+                                <article class="message is-danger">
+                                    <div class="message-body">
+                                        <strong>Tuvimos problemas al enviar tu solicitud</strong>, reintenta nuevamente.
+                                    </div>
+                                </article>
                             </div>
 
                             <div class="column is-12">

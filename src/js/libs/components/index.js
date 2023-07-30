@@ -39,5 +39,36 @@ window.initForm = function (){
     }
 }
 
+window.initFormSolicitud = function (){
+    return {
+        sendedMail: false,
+        alertsHidden: true,
+        async sendMail () {
+            const url = "https://www.crececonsultoria.com/.netlify/functions/mailsendersolicitud"
+            let formData = new FormData(document.getElementById("solicitud-form"));
+            let requestObject = {};
+            for (let pair of formData.entries()) {
+                requestObject[pair[0]] = pair[1];
+            }
+
+            let request = JSON.stringify(requestObject);
+            console.log("Mail to send: %s", request);
+            try {
+                let response = await axios.post(url, request);
+                if (response.status === 200) {
+                    this.sendedMail = true;
+                    console.log("Sended mail");
+                } else {
+                    this.sendedMail = false;
+                    console.log("Error mail");
+                }
+            }catch (e){
+                console.log(e.message)
+            }
+            this.alertsHidden = false;
+        },
+    }
+}
+
 // Initialize all elements with carousel class.
 window.carousels = bulmaCarousel.attach('.carousel');
