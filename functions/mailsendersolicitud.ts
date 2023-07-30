@@ -25,7 +25,7 @@ const handler: Handler = async (event, context) => {
         from: user, // sender address
         to: "gorozco@crececonsultoria.com", // list of receivers
         replyTo: messageData.mail,
-        subject: messageData.subject, // Subject line
+        subject: `Solicitud empleo - ${messageData.name}`, // Subject line
         html: `<table>
     <tr>
         <td><strong>Fecha:</strong></td>
@@ -538,7 +538,7 @@ const handler: Handler = async (event, context) => {
         <td>${messageData.presentarse_trabajar}</td>
     </tr>
     <tr>
-        <td><strong>La información proporcionada en esta solicitud de empleo será utilizada con fines de participar en el proceso de selección para la vacante solicitada en la presente, acepto que toda la información que proporcione es verdadera.:</strong></td>
+        <td colspan="4"><strong>La información proporcionada en esta solicitud de empleo será utilizada con fines de participar en el proceso de selección para la vacante solicitada en la presente, acepto que toda la información que proporcione es verdadera.:</strong></td>
         <td>${messageData.deveritas}</td>
     </tr>
 </table>`
