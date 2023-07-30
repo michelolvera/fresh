@@ -160,7 +160,7 @@ title: Inicio
                             </div>
                             <div class="column is-6">
                                 <label>Afore
-                                    <input name="afore" class="input is-medium" required type="text" placeholder="Afore">
+                                    <input name="afore" class="input is-medium" type="text" placeholder="Afore">
                                 </label>
                             </div>
                             <div class="column is-6">
@@ -175,12 +175,12 @@ title: Inicio
                             </div>
                             <div class="column is-6">
                                 <label>Cartilla Militar No.
-                                    <input name="cartilla" class="input is-medium" required type="text" placeholder="Cartilla Militar No.">
+                                    <input name="cartilla" class="input is-medium" type="text" placeholder="Cartilla Militar No.">
                                 </label>
                             </div>
                             <div class="column is-6">
                                 <label>Pasaporte
-                                    <input name="passport" class="input is-medium" required type="number" placeholder="Pasaporte">
+                                    <input name="passport" class="input is-medium" type="number" placeholder="Pasaporte">
                                 </label>
                             </div>
                             <div class="column is-4">
@@ -283,12 +283,12 @@ title: Inicio
                             </div>
                             <div class="column is-4">
                                 <label>Domicilio
-                                    <input name="madre_domicilio" class="input is-medium" required type="text" placeholder="Domicilio">
+                                    <input name="madre_domicilio" class="input is-medium" type="text" placeholder="Domicilio">
                                 </label>
                             </div>
                             <div class="column is-3">
                                 <label>Ocupación
-                                    <input name="madre_ocupacion" class="input is-medium" required type="text" placeholder="Ocupación">
+                                    <input name="madre_ocupacion" class="input is-medium" type="text" placeholder="Ocupación">
                                 </label>
                             </div>
                             <div class="column is-12">
@@ -316,12 +316,12 @@ title: Inicio
                             </div>
                             <div class="column is-4">
                                 <label>Domicilio
-                                    <input name="padre_domicilio" class="input is-medium" required type="text" placeholder="Domicilio">
+                                    <input name="padre_domicilio" class="input is-medium" type="text" placeholder="Domicilio">
                                 </label>
                             </div>
                             <div class="column is-3">
                                 <label>Ocupación
-                                    <input name="padre_ocupacion" class="input is-medium" required type="text" placeholder="Ocupación">
+                                    <input name="padre_ocupacion" class="input is-medium" type="text" placeholder="Ocupación">
                                 </label>
                             </div>
                             <div class="column is-12">
@@ -331,35 +331,35 @@ title: Inicio
                             </div>
                             <div class="column is-4">
                                 <label>Nombre
-                                    <input name="esposa_nombre" class="input is-medium" required type="text" placeholder="Nombre">
+                                    <input name="esposa_nombre" class="input is-medium" type="text" placeholder="Nombre">
                                 </label>
                             </div>
                             <div class="column is-1">
                                 ¿Vive?
                                 <div class="control">
                                     <label class="radio">
-                                        <input type="radio" required name="esposa_vive" value="Si">
+                                        <input type="radio" name="esposa_vive" value="Si">
                                         Si
                                     </label>
                                     <label class="radio">
-                                        <input type="radio" required name="esposa_vive" value="No">
+                                        <input type="radio" name="esposa_vive" value="No">
                                         No
                                     </label>
                                 </div>
                             </div>
                             <div class="column is-4">
                                 <label>Domicilio
-                                    <input name="esposa_domicilio" class="input is-medium" required type="text" placeholder="Domicilio">
+                                    <input name="esposa_domicilio" class="input is-medium" type="text" placeholder="Domicilio">
                                 </label>
                             </div>
                             <div class="column is-3">
                                 <label>Ocupación
-                                    <input name="esposa_ocupacion" class="input is-medium" required type="text" placeholder="Ocupación">
+                                    <input name="esposa_ocupacion" class="input is-medium" type="text" placeholder="Ocupación">
                                 </label>
                             </div>
                             <div class="column is-12">
                                 <label>Nombre y edades de los hijos
-                                    <input name="hijos_datos" class="input is-medium" required type="text" placeholder="Nombre y edades de los hijos">
+                                    <input name="hijos_datos" class="input is-medium" type="text" placeholder="Nombre y edades de los hijos">
                                 </label>
                             </div>
 
@@ -480,6 +480,7 @@ title: Inicio
                                 <label>Titulo Obtenido <br />
                                     <div class="select">
                                         <select name="titulo_bachillerato" required>
+                                            <option value="Carrera trunca">Carrera trunca</option>
                                             <option value="Certificado">Certificado</option>
                                             <option value="Titulo">Titulo</option>
                                             <option value="Carta de pasante">Carta de pasante</option>
@@ -497,28 +498,29 @@ title: Inicio
                             </div>
                             <div class="column is-6">
                                 <label>Nombre
-                                    <input name="universidad_nombre" class="input is-medium" required type="text" placeholder="Nombre">
+                                    <input name="universidad_nombre" class="input is-medium" type="text" placeholder="Nombre">
                                 </label>
                             </div>
                             <div class="column is-6">
                                 <label>Domicilio
-                                    <input name="universidad_domicilio" class="input is-medium" required type="text" placeholder="Domicilio">
+                                    <input name="universidad_domicilio" class="input is-medium" type="text" placeholder="Domicilio">
                                 </label>
                             </div>
                             <div class="column is-3">
                                 <label>Del año:
-                                    <input name="universidad_de_ano" class="input is-medium" required type="number" minlength="4" min="1950" max="2050" placeholder="Del año:">
+                                    <input name="universidad_de_ano" class="input is-medium" type="number" minlength="4" min="1950" max="2050" placeholder="Del año:">
                                 </label>
                             </div>
                             <div class="column is-3">
                                 <label>Al año:
-                                    <input name="universidad_al_ano" class="input is-medium" required type="number" minlength="4" min="1950" max="2050" placeholder="Al año:">
+                                    <input name="universidad_al_ano" class="input is-medium" type="number" minlength="4" min="1950" max="2050" placeholder="Al año:">
                                 </label>
                             </div>
                             <div class="column is-6">
                                 <label>Titulo Obtenido <br />
                                     <div class="select">
-                                        <select name="titulo_universidad" required>
+                                        <select name="titulo_universidad">
+                                            <option value="Carrera trunca">Carrera trunca</option>
                                             <option value="Certificado">Certificado</option>
                                             <option value="Titulo">Titulo</option>
                                             <option value="Carta de pasante">Carta de pasante</option>
@@ -536,22 +538,22 @@ title: Inicio
                             </div>
                             <div class="column is-6">
                                 <label>Escuela
-                                    <input name="estudio_actual_nombre" class="input is-medium" required type="text" placeholder="Escuela">
+                                    <input name="estudio_actual_nombre" class="input is-medium" type="text" placeholder="Escuela">
                                 </label>
                             </div>
                             <div class="column is-6">
                                 <label>Horario
-                                    <input name="estudio_actual_horario" class="input is-medium" required type="text" placeholder="Horario">
+                                    <input name="estudio_actual_horario" class="input is-medium" type="text" placeholder="Horario">
                                 </label>
                             </div>
                             <div class="column is-6">
                                 <label>Curso o carrera
-                                    <input name="estudio_actual_cruso" class="input is-medium" required type="text" placeholder="Curso o carrera">
+                                    <input name="estudio_actual_cruso" class="input is-medium" type="text" placeholder="Curso o carrera">
                                 </label>
                             </div>
                             <div class="column is-6">
                                 <label>Grado
-                                    <input name="estudio_actual_grado" class="input is-medium" required type="text" placeholder="Grado">
+                                    <input name="estudio_actual_grado" class="input is-medium" type="text" placeholder="Grado">
                                 </label>
                             </div>
 
@@ -567,12 +569,12 @@ title: Inicio
 
                             <div class="column is-6">
                                 <label>Que idiomas habla
-                                    <input name="idiomas" class="input is-medium" required type="text" placeholder="Que idiomas habla">
+                                    <input name="idiomas" class="input is-medium" type="text" placeholder="Que idiomas habla">
                                 </label>
                             </div>
                             <div class="column is-6">
                                 <label>Funciones de oficina que domina
-                                    <input name="funciones_oficina" class="input is-medium" required type="text" placeholder="Funciones de oficina que domina">
+                                    <input name="funciones_oficina" class="input is-medium" type="text" placeholder="Funciones de oficina que domina">
                                 </label>
                             </div>
                             <div class="column is-6">
@@ -582,7 +584,7 @@ title: Inicio
                             </div>
                             <div class="column is-6">
                                 <label>Software que conoce
-                                    <input name="software" class="input is-medium" required type="text" placeholder="Software que conoce">
+                                    <input name="software" class="input is-medium" type="text" placeholder="Software que conoce">
                                 </label>
                             </div>
                             <div class="column is-12">
@@ -658,12 +660,12 @@ title: Inicio
                             </div>
                             <div class="column is-4">
                                 <label>Nombre de su jefe directo
-                                    <input name="empleo_actual_jefe_directo" class="input is-medium" required type="text" placeholder="Nombre de su jefe directo">
+                                    <input name="empleo_actual_jefe_directo" class="input is-medium" type="text" placeholder="Nombre de su jefe directo">
                                 </label>
                             </div>
                             <div class="column is-4">
                                 <label>Puesto de su jefe directo
-                                    <input name="empleo_actual_jefe_directo_puesto" class="input is-medium" required type="text" placeholder="Puesto de su jefe directo">
+                                    <input name="empleo_actual_jefe_directo_puesto" class="input is-medium" type="text" placeholder="Puesto de su jefe directo">
                                 </label>
                             </div>
                             <div class="column is-4">
@@ -739,12 +741,12 @@ title: Inicio
                             </div>
                             <div class="column is-4">
                                 <label>Nombre de su jefe directo
-                                    <input name="empleo_anterior1_jefe_directo" class="input is-medium" required type="text" placeholder="Nombre de su jefe directo">
+                                    <input name="empleo_anterior1_jefe_directo" class="input is-medium" type="text" placeholder="Nombre de su jefe directo">
                                 </label>
                             </div>
                             <div class="column is-4">
                                 <label>Puesto de su jefe directo
-                                    <input name="empleo_anterior1_jefe_directo_puesto" class="input is-medium" required type="text" placeholder="Puesto de su jefe directo">
+                                    <input name="empleo_anterior1_jefe_directo_puesto" class="input is-medium" type="text" placeholder="Puesto de su jefe directo">
                                 </label>
                             </div>
                             <div class="column is-4">
@@ -820,12 +822,12 @@ title: Inicio
                             </div>
                             <div class="column is-4">
                                 <label>Nombre de su jefe directo
-                                    <input name="empleo_anterior2_jefe_directo" class="input is-medium" required type="text" placeholder="Nombre de su jefe directo">
+                                    <input name="empleo_anterior2_jefe_directo" class="input is-medium" type="text" placeholder="Nombre de su jefe directo">
                                 </label>
                             </div>
                             <div class="column is-4">
                                 <label>Puesto de su jefe directo
-                                    <input name="empleo_anterior2_jefe_directo_puesto" class="input is-medium" required type="text" placeholder="Puesto de su jefe directo">
+                                    <input name="empleo_anterior2_jefe_directo_puesto" class="input is-medium" type="text" placeholder="Puesto de su jefe directo">
                                 </label>
                             </div>
                             <div class="column is-4">
@@ -856,68 +858,68 @@ title: Inicio
                             </div>
                             <div class="column is-4">
                                 <label>De:
-                                    <input name="empleo_anterior3_de" class="input is-medium" required type="date" placeholder="Del año:">
+                                    <input name="empleo_anterior3_de" class="input is-medium" type="date" placeholder="Del año:">
                                 </label>
                             </div>
                             <div class="column is-4">
                                 <label>A:
-                                    <input name="empleo_anterior3_a" class="input is-medium" required type="date" placeholder="Al año:">
+                                    <input name="empleo_anterior3_a" class="input is-medium" type="date" placeholder="Al año:">
                                 </label>
                             </div>
                             <div class="column is-4">
                                 <label>Nombre de la compañia
-                                    <input name="empleo_anterior3_nombre" class="input is-medium" required type="text" placeholder="Nombre de la compañia">
+                                    <input name="empleo_anterior3_nombre" class="input is-medium" type="text" placeholder="Nombre de la compañia">
                                 </label>
                             </div>
                             <div class="column is-4">
                                 <label>Dirección
-                                    <input name="empleo_anterior3_direccion" class="input is-medium" required type="text" placeholder="Dirección">
+                                    <input name="empleo_anterior3_direccion" class="input is-medium" type="text" placeholder="Dirección">
                                 </label>
                             </div>
                             <div class="column is-4">
                                 <label>Teléfono
-                                    <input name="empleo_anterior3_tel" class="input is-medium" required type="tel" placeholder="Teléfono">
+                                    <input name="empleo_anterior3_tel" class="input is-medium" type="tel" placeholder="Teléfono">
                                 </label>
                             </div>
                             <div class="column is-4">
                                 <label>Puesto desempeñado
-                                    <input name="empleo_anterior3_puesto" class="input is-medium" required type="Text" placeholder="Puesto desempeñado">
+                                    <input name="empleo_anterior3_puesto" class="input is-medium" type="Text" placeholder="Puesto desempeñado">
                                 </label>
                             </div>
                             <div class="column is-4">
                                 <label>Sueldo mensual inicial
-                                    <input name="empleo_anterior3_sueldo_inicial" class="input is-medium" required type="number" min="0" placeholder="Sueldo mensual inicial">
+                                    <input name="empleo_anterior3_sueldo_inicial" class="input is-medium" type="number" min="0" placeholder="Sueldo mensual inicial">
                                 </label>
                             </div>
                             <div class="column is-4">
                                 <label>Sueldo mensual final
-                                    <input name="empleo_anterior3_sueldo_final" class="input is-medium" required type="number" min="0" placeholder="Sueldo mensual final">
+                                    <input name="empleo_anterior3_sueldo_final" class="input is-medium" type="number" min="0" placeholder="Sueldo mensual final">
                                 </label>
                             </div>
                             <div class="column is-12">
                                 <label>Motivo separación
-                                    <input name="empleo_anterior3_separacion" class="input is-medium" required type="text" placeholder="Motivo separación">
+                                    <input name="empleo_anterior3_separacion" class="input is-medium" type="text" placeholder="Motivo separación">
                                 </label>
                             </div>
                             <div class="column is-4">
                                 <label>Nombre de su jefe directo
-                                    <input name="empleo_anterior3_jefe_directo" class="input is-medium" required type="text" placeholder="Nombre de su jefe directo">
+                                    <input name="empleo_anterior3_jefe_directo" class="input is-medium" type="text" placeholder="Nombre de su jefe directo">
                                 </label>
                             </div>
                             <div class="column is-4">
                                 <label>Puesto de su jefe directo
-                                    <input name="empleo_anterior3_jefe_directo_puesto" class="input is-medium" required type="text" placeholder="Puesto de su jefe directo">
+                                    <input name="empleo_anterior3_jefe_directo_puesto" class="input is-medium" type="text" placeholder="Puesto de su jefe directo">
                                 </label>
                             </div>
                             <div class="column is-4">
                                 ¿Podemos solicitar informes de usted?
                                 <div class="control">
                                     <label class="radio">
-                                        <input type="radio" required name="empleo_anterior3_informes" value="Si">
+                                        <input type="radio" name="empleo_anterior3_informes" value="Si">
                                         Si
                                     </label>
                                     <label class="radio">
-                                        <input type="radio" required name="empleo_anterior3_informes" value="No">
+                                        <input type="radio" name="empleo_anterior3_informes" value="No">
                                         No
                                     </label>
                                 </div>
@@ -1025,25 +1027,25 @@ title: Inicio
                             </div>
                             <div class="column is-3">
                                 <label>Importe mensual
-                                    <input name="otros_ingresos_monto" class="input is-medium" required type="number" min="0" placeholder="Importe mensual">
+                                    <input name="otros_ingresos_monto" class="input is-medium" type="number" min="0" placeholder="Importe mensual">
                                 </label>
                             </div>
                             <div class="column is-3">
                                 ¿Su cónyuge trabaja?
                                 <div class="control">
                                     <label class="radio">
-                                        <input type="radio" required name="conyuge_trabaja" value="Si">
+                                        <input type="radio" name="conyuge_trabaja" value="Si">
                                         Si
                                     </label>
                                     <label class="radio">
-                                        <input type="radio" required name="conyuge_trabaja" value="No">
+                                        <input type="radio" name="conyuge_trabaja" value="No">
                                         No
                                     </label>
                                 </div>
                             </div>
                             <div class="column is-3">
                                 <label>Percepción mensual
-                                    <input name="conyuge_trabaja_monto" class="input is-medium" required type="number" min="0" placeholder="Importe mensual">
+                                    <input name="conyuge_trabaja_monto" class="input is-medium" type="number" min="0" placeholder="Importe mensual">
                                 </label>
                             </div>
                             <div class="column is-3">
@@ -1061,25 +1063,25 @@ title: Inicio
                             </div>
                             <div class="column is-3">
                                 <label>Valor aproximado
-                                    <input name="casa_propia_valor" class="input is-medium" required type="number" min="0" placeholder="Valor aproximado">
+                                    <input name="casa_propia_valor" class="input is-medium" type="number" min="0" placeholder="Valor aproximado">
                                 </label>
                             </div>
                             <div class="column is-3">
                                 ¿Paga renta?
                                 <div class="control">
                                     <label class="radio">
-                                        <input type="radio" required name="renta" value="Si">
+                                        <input type="radio" name="renta" value="Si">
                                         Si
                                     </label>
                                     <label class="radio">
-                                        <input type="radio" required name="renta" value="No">
+                                        <input type="radio" name="renta" value="No">
                                         No
                                     </label>
                                 </div>
                             </div>
                             <div class="column is-3">
                                 <label>Renta mensual
-                                    <input name="renta_monto" class="input is-medium" required type="number" min="0" placeholder="Renta mensual">
+                                    <input name="renta_monto" class="input is-medium" type="number" min="0" placeholder="Renta mensual">
                                 </label>
                             </div>
                             <div class="column is-4">
@@ -1097,12 +1099,12 @@ title: Inicio
                             </div>
                             <div class="column is-4">
                                 <label>Marca
-                                    <input name="automovil_marca" class="input is-medium" required type="text" placeholder="Marca">
+                                    <input name="automovil_marca" class="input is-medium" type="text" placeholder="Marca">
                                 </label>
                             </div>
                             <div class="column is-4">
                                 <label>Modelo
-                                    <input name="automovil_modelo" class="input is-medium" required type="text" placeholder="Modelo">
+                                    <input name="automovil_modelo" class="input is-medium" type="text" placeholder="Modelo">
                                 </label>
                             </div>
                             <div class="column is-4">
@@ -1120,22 +1122,22 @@ title: Inicio
                             </div>
                             <div class="column is-4">
                                 <label>¿Con quién?
-                                    <input name="deudas_quien" class="input is-medium" required type="text" placeholder="¿Con quién?">
+                                    <input name="deudas_quien" class="input is-medium" type="text" placeholder="¿Con quién?">
                                 </label>
                             </div>
                             <div class="column is-4">
                                 <label>Importe
-                                    <input name="deudas_importe" class="input is-medium" required type="number" min="0" placeholder="Importe">
+                                    <input name="deudas_importe" class="input is-medium" type="number" min="0" placeholder="Importe">
                                 </label>
                             </div>
                             <div class="column is-6">
                                 <label>¿Cuánto abona mensualmente?
-                                    <input name="deudas_abono" class="input is-medium" required type="number" min="0" placeholder="¿Cuánto abona mensualmente?">
+                                    <input name="deudas_abono" class="input is-medium" type="number" min="0" placeholder="¿Cuánto abona mensualmente?">
                                 </label>
                             </div>
                             <div class="column is-6">
                                 <label>¿A cuánto ascienden sus gastos mensuales?
-                                    <input name="gastos_mensuales" class="input is-medium" required type="number" min="0" placeholder="¿A cuánto ascienden sus gastos mensuales?">
+                                    <input name="gastos_mensuales" class="input is-medium" type="number" min="0" placeholder="¿A cuánto ascienden sus gastos mensuales?">
                                 </label>
                             </div>
 
