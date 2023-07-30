@@ -126,7 +126,7 @@ const handler: Handler = async (event, context) => {
     </tr>
     <tr>
         <td><strong>¿Cuál es su meta en la vida?:</strong></td>
-        <td>${messageData.meta}</td>
+        <td colspan="3">${messageData.meta}</td>
     </tr>
     <tr>
         <td><br /><h4>DATOS FAMILIARES</h4></td>
@@ -172,7 +172,7 @@ const handler: Handler = async (event, context) => {
     </tr>
     <tr>
         <td><strong>Nombre y edades de los hijos:</strong></td>
-        <td>${messageData.hijos_datos}</td>
+        <td colspan="7">${messageData.hijos_datos}</td>
     </tr>
     <tr>
         <td><br /><h4>ESCOLARIDAD</h4></td>
@@ -276,8 +276,8 @@ const handler: Handler = async (event, context) => {
         <td>${messageData.software}</td>
     </tr>
     <tr>
-        <td><strong>Otros trabajos o funcines que domine:</strong></td>
-        <td>${messageData.otras_funciones}</td>
+        <td><strong>Otros trabajos o funciones que domine:</strong></td>
+        <td colspan="3">${messageData.otras_funciones}</td>
     </tr>
     <tr>
         <td><br /><h4>EMPLEO ACTUAL Y ANTERIORES</h4></td>
@@ -310,7 +310,7 @@ const handler: Handler = async (event, context) => {
     </tr>
     <tr>
         <td><strong>Motivo separación:</strong></td>
-        <td>${messageData.empleo_actual_separacion}</td>
+        <td colspan="5">${messageData.empleo_actual_separacion}</td>
     </tr>
     <tr>
         <td><strong>Nombre de su jefe directo:</strong></td>
@@ -348,7 +348,7 @@ const handler: Handler = async (event, context) => {
     </tr>
     <tr>
         <td><strong>Motivo separación:</strong></td>
-        <td>${messageData.empleo_anterior1_separacion}</td>
+        <td colspan="5">${messageData.empleo_anterior1_separacion}</td>
     </tr>
     <tr>
         <td><strong>Nombre de su jefe directo:</strong></td>
@@ -386,7 +386,7 @@ const handler: Handler = async (event, context) => {
     </tr>
     <tr>
         <td><strong>Motivo separación:</strong></td>
-        <td>${messageData.empleo_anterior2_separacion}</td>
+        <td colspan="5">${messageData.empleo_anterior2_separacion}</td>
     </tr>
     <tr>
         <td><strong>Nombre de su jefe directo:</strong></td>
@@ -424,7 +424,7 @@ const handler: Handler = async (event, context) => {
     </tr>
     <tr>
         <td><strong>Motivo separación:</strong></td>
-        <td>${messageData.empleo_anterior3_separacion}</td>
+        <td colspan="5">${messageData.empleo_anterior3_separacion}</td>
     </tr>
     <tr>
         <td><strong>Nombre de su jefe directo:</strong></td>
