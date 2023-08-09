@@ -178,7 +178,7 @@ const handler: Handler = async (event, context) => {
         <td><br /><h4>ESCOLARIDAD</h4></td>
     </tr>
     <tr>
-        <td><br /><h5>Pimaria</h5></td>
+        <td><br /><h5>Primaria</h5></td>
     </tr>
     <tr>
         <td><strong>Nombre:</strong></td>
