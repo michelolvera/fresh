@@ -1,0 +1,1296 @@
+---
+layout: default
+title: Inicio
+---
+
+<section class="hero is-fullheight is-default is-bold">
+
+    {{> navbar}}
+
+    {{> navbar-clone}}
+
+<section id="somos" class="section is-medium section-light-grey">
+    <div class="container">
+        <div class="title-wrapper has-text-centered">
+            <h2 class="title is-2">Solicitud de Empleo</h2>
+            <div class="divider is-centered"></div>
+        </div>
+        <div class="content-wrapper" x-data="initFormSolicitud()">
+            <div class="columns">
+                <div class="column is-8 mx-auto">
+                    <form @submit.prevent="sendMail" id="solicitud-form">
+                        <div class="columns is-multiline">
+                            <div class="column is-6">
+                                <label>Fecha
+                                    <input name="date" class="input is-medium" required type="date">
+                                </label>
+                            </div>
+                            <hr>
+                            <div class="column is-6">
+                                <label>Sueldo Mensual Deseado
+                                    <input name="salary" class="input is-medium" required type="number" min="0" placeholder="Sueldo Mensual Deseado">
+                                </label>
+                            </div>
+                            <div class="column is-12">
+                                <div class="has-text-centered">
+                                    <h2 class="title is-5">Datos Personales</h2>
+                                </div>
+                            </div>
+                            <div class="column is-6">
+                                <label>Nombre completo
+                                    <input name="name" class="input is-medium" required type="text" placeholder="Nombre completo">
+                                </label>
+                            </div>
+                            <div class="column is-6">
+                                <label>Edad
+                                    <input name="age" class="input is-medium" required type="number" min="18" placeholder="Edad">
+                                </label>
+                            </div>
+                            <div class="column is-6">
+                                <label>Teléfono a 10 dígitos
+                                    <input name="phone" class="input is-medium" required type="tel" minlength="10" maxlength="13" placeholder="Teléfono a 10 dígitos">
+                                </label>
+                            </div>
+                            <div class="column is-6">
+                                <label>Sexo <br />
+                                    <div class="select">
+                                        <select name="sex" required>
+                                            <option value="Masculino">Masculino</option>
+                                            <option value="Femenino">Femenino</option>
+                                        </select>
+                                    </div>
+                                </label>
+                            </div>
+                            <div class="column is-6">
+                                <label>Fecha de nacimiento:
+                                    <input name="birthdate" class="input is-medium" required type="date">
+                                </label>
+                            </div>
+                            <div class="column is-6">
+                                <label>Nacionalidad
+                                    <input name="nationality" class="input is-medium" required type="text" placeholder="Nacionalidad">
+                                </label>
+                            </div>
+                            <div class="column is-6">
+                                <label>Domicilio:
+                                    <input name="street" class="input is-medium" required type="text" placeholder="Domicilio: Calle y Numero">
+                                </label>
+                            </div>
+                            <div class="column is-6">
+                                <label>Colonia
+                                    <input name="neighborhood" class="input is-medium" required type="text" placeholder="Colonia">
+                                </label>
+                            </div>
+                            <div class="column is-6">
+                                <label>Codigo Postal
+                                    <input name="postal_code" class="input is-medium" required type="number" min="0" minlength="5" placeholder="Codigo Postal">
+                                </label>
+                            </div>
+                            <div class="column is-6">
+                                <label>Correo
+                                    <input name="mail" class="input is-medium" required type="email" placeholder="Correo">
+                                </label>
+                            </div>
+                            <div class="column is-6">
+                                Estado Civil
+                                <div class="control">
+                                    <label class="radio">
+                                        <input type="radio" required name="marital_status" value="Casado">
+                                        Casado
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" required name="marital_status" value="Soltero">
+                                        Soltero
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" required name="marital_status" value="Otro">
+                                        Otro
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="column is-6">
+                                Vive con
+                                <div class="control">
+                                    <label class="radio">
+                                        <input type="radio" required name="live_with" value="Sus padres">
+                                        Sus padres
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" required name="live_with" value="Su familia">
+                                        Su familia
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" required name="live_with" value="Parientes">
+                                        Parientes
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" required name="live_with" value="Solo">
+                                        Solo
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="column is-6">
+                                Personas que dependen de usted <br />
+                                <label class="checkbox">
+                                    <input type="checkbox" name="dependients" value="Hijos">
+                                    Hijos
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="dependients" value="Cónyuge">
+                                    Cónyuge
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="dependients" value="Padres">
+                                    Padres
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="dependients" value="Otros">
+                                    Otros
+                                </label>
+                            </div>
+                            <div class="column is-12">
+                                <div class="has-text-centered">
+                                    <h2 class="title is-5">Documentación</h2>
+                                </div>
+                            </div>
+                            <div class="column is-6">
+                                <label>CURP
+                                    <input name="curp" class="input is-medium" required type="text" placeholder="CURP">
+                                </label>
+                            </div>
+                            <div class="column is-6">
+                                <label>Afore
+                                    <input name="afore" class="input is-medium" type="text" placeholder="Afore">
+                                </label>
+                            </div>
+                            <div class="column is-6">
+                                <label>RFC
+                                    <input name="rfc" class="input is-medium" required type="text" placeholder="RFC">
+                                </label>
+                            </div>
+                            <div class="column is-6">
+                                <label>Número de Seguridad Social
+                                    <input name="nss" class="input is-medium" required type="text" placeholder="Número de Seguridad Social">
+                                </label>
+                            </div>
+                            <div class="column is-6">
+                                <label>Cartilla Militar No.
+                                    <input name="cartilla" class="input is-medium" type="text" placeholder="Cartilla Militar No.">
+                                </label>
+                            </div>
+                            <div class="column is-6">
+                                <label>Pasaporte
+                                    <input name="passport" class="input is-medium" type="number" placeholder="Pasaporte">
+                                </label>
+                            </div>
+                            <div class="column is-4">
+                                Tiene licencia de manejo
+                                <div class="control">
+                                    <label class="radio">
+                                        <input type="radio" required name="licencia_manejo" value="Si">
+                                        Si
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" required name="licencia_manejo" value="No">
+                                        No
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="column is-4">
+                                <label>Tipo de licencia estatal
+                                    <input name="licencia_estatal" class="input is-medium" type="text" maxlength="1" placeholder="Tipo de licencia estatal">
+                                </label>
+                            </div>
+                            <div class="column is-4">
+                                <label>Tipo de licencia federal
+                                    <input name="licencia_federal" class="input is-medium" type="text" maxlength="1" placeholder="Tipo de licencia federal">
+                                </label>
+                            </div>
+                            <div class="column is-12">
+                                <label>En caso de ser extranjero, coloque los documentos que le permitan trabajar en el pais
+                                    <input name="documentos_extrangero" class="input is-medium" type="text" placeholder="En caso de ser extranjero, coloque los documentos que le permitan trabajar en el pais">
+                                </label>
+                            </div>
+                            <div class="column is-12">
+                                <div class="has-text-centered">
+                                    <h2 class="title is-5">Estado de salud y hábitos personales</h2>
+                                </div>
+                            </div>
+                            <div class="column is-6">
+                                ¿Cómo considera su estado de salud actual?
+                                <div class="control">
+                                    <label class="radio">
+                                        <input type="radio" required name="estado_salud" value="Bueno">
+                                        Bueno
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" required name="estado_salud" value="Regular">
+                                        Regular
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" required name="estado_salud" value="Malo">
+                                        Malo
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="column is-6">
+                                <label>¿Práctica usted algún deporte?
+                                    <input name="deportes" class="input is-medium" required type="text" placeholder="¿Práctica usted algún deporte?">
+                                </label>
+                            </div>
+                            <div class="column is-6">
+                                <label>¿Pertenece a algún club deportivo o social?
+                                    <input name="club" class="input is-medium" required type="text" placeholder="¿Pertenece a algun club deportivo o social?">
+                                </label>
+                            </div>
+                            <div class="column is-6">
+                                <label>¿Cuál es su pasatiempo favorito?
+                                    <input name="pasatiempo" class="input is-medium" required type="text" placeholder="¿Cuál es su pasatiempo favorito?">
+                                </label>
+                            </div>
+                            <div class="column is-12">
+                                <label>¿Cuál es su meta en la vida?
+                                    <input name="meta" class="input is-medium" required type="text" placeholder="¿Cuál es su meta en la vida?">
+                                </label>
+                            </div>
+                            <div class="column is-12">
+                                <div class="has-text-centered">
+                                    <h2 class="title is-5">Datos familiares</h2>
+                                </div>
+                            </div>
+                            <div class="column is-12">
+                                <div class="has-text">
+                                    <h2 class="title is-6">Madre</h2>
+                                </div>
+                            </div>
+                            <div class="column is-4">
+                                <label>Nombre
+                                    <input name="madre_nombre" class="input is-medium" required type="text" placeholder="Nombre">
+                                </label>
+                            </div>
+                            <div class="column is-1">
+                                ¿Vive?
+                                <div class="control">
+                                    <label class="radio">
+                                        <input type="radio" required name="madre_vive" value="Si">
+                                        Si
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" required name="madre_vive" value="No">
+                                        No
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="column is-4">
+                                <label>Domicilio
+                                    <input name="madre_domicilio" class="input is-medium" type="text" placeholder="Domicilio">
+                                </label>
+                            </div>
+                            <div class="column is-3">
+                                <label>Ocupación
+                                    <input name="madre_ocupacion" class="input is-medium" type="text" placeholder="Ocupación">
+                                </label>
+                            </div>
+                            <div class="column is-12">
+                                <div class="has-text">
+                                    <h2 class="title is-6">Padre</h2>
+                                </div>
+                            </div>
+                            <div class="column is-4">
+                                <label>Nombre
+                                    <input name="padre_nombre" class="input is-medium" required type="text" placeholder="Nombre">
+                                </label>
+                            </div>
+                            <div class="column is-1">
+                                ¿Vive?
+                                <div class="control">
+                                    <label class="radio">
+                                        <input type="radio" required name="padre_vive" value="Si">
+                                        Si
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" required name="padre_vive" value="No">
+                                        No
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="column is-4">
+                                <label>Domicilio
+                                    <input name="padre_domicilio" class="input is-medium" type="text" placeholder="Domicilio">
+                                </label>
+                            </div>
+                            <div class="column is-3">
+                                <label>Ocupación
+                                    <input name="padre_ocupacion" class="input is-medium" type="text" placeholder="Ocupación">
+                                </label>
+                            </div>
+                            <div class="column is-12">
+                                <div class="has-text">
+                                    <h2 class="title is-6">Esposa (o)</h2>
+                                </div>
+                            </div>
+                            <div class="column is-4">
+                                <label>Nombre
+                                    <input name="esposa_nombre" class="input is-medium" type="text" placeholder="Nombre">
+                                </label>
+                            </div>
+                            <div class="column is-1">
+                                ¿Vive?
+                                <div class="control">
+                                    <label class="radio">
+                                        <input type="radio" name="esposa_vive" value="Si">
+                                        Si
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="esposa_vive" value="No">
+                                        No
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="column is-4">
+                                <label>Domicilio
+                                    <input name="esposa_domicilio" class="input is-medium" type="text" placeholder="Domicilio">
+                                </label>
+                            </div>
+                            <div class="column is-3">
+                                <label>Ocupación
+                                    <input name="esposa_ocupacion" class="input is-medium" type="text" placeholder="Ocupación">
+                                </label>
+                            </div>
+                            <div class="column is-12">
+                                <label>Nombre y edades de los hijos
+                                    <input name="hijos_datos" class="input is-medium" type="text" placeholder="Nombre y edades de los hijos">
+                                </label>
+                            </div>
+
+                            <!-- Escolaridad Titulo -->
+
+                            <div class="column is-12">
+                                <div class="has-text-centered">
+                                    <h2 class="title is-5">Escolaridad</h2>
+                                </div>
+                            </div>
+
+                            <!-- Escolaridad Primaria -->
+
+                            <div class="column is-12">
+                                <div class="has-text">
+                                    <h2 class="title is-6">Primaria</h2>
+                                </div>
+                            </div>
+                            <div class="column is-6">
+                                <label>Nombre
+                                    <input name="primaria_nombre" class="input is-medium" required type="text" placeholder="Nombre">
+                                </label>
+                            </div>
+                            <div class="column is-6">
+                                <label>Domicilio
+                                    <input name="primaria_domicilio" class="input is-medium" required type="text" placeholder="Domicilio">
+                                </label>
+                            </div>
+                            <div class="column is-3">
+                                <label>Del año:
+                                    <input name="primaria_de_ano" class="input is-medium" required type="number" minlength="4" min="1950" max="2050" placeholder="Del año:">
+                                </label>
+                            </div>
+                            <div class="column is-3">
+                                <label>Al año:
+                                    <input name="primaria_al_ano" class="input is-medium" required type="number" minlength="4" min="1950" max="2050" placeholder="Al año:">
+                                </label>
+                            </div>
+                            <div class="column is-6">
+                                <label>Titulo Obtenido <br />
+                                    <div class="select">
+                                        <select name="titulo_primaria" required>
+                                            <option value="Certificado">Certificado</option>
+                                            <option value="Titulo">Titulo</option>
+                                            <option value="Carta de pasante">Carta de pasante</option>
+                                        </select>
+                                    </div>
+                                </label>
+                            </div>
+
+                            <!-- Escolaridad Secundaria -->
+
+                            <div class="column is-12">
+                                <div class="has-text">
+                                    <h2 class="title is-6">Secundaria</h2>
+                                </div>
+                            </div>
+                            <div class="column is-6">
+                                <label>Nombre
+                                    <input name="secundaria_nombre" class="input is-medium" required type="text" placeholder="Nombre">
+                                </label>
+                            </div>
+                            <div class="column is-6">
+                                <label>Domicilio
+                                    <input name="secundaria_domicilio" class="input is-medium" required type="text" placeholder="Domicilio">
+                                </label>
+                            </div>
+                            <div class="column is-3">
+                                <label>Del año:
+                                    <input name="secundaria_de_ano" class="input is-medium" required type="number" minlength="4" min="1950" max="2050" placeholder="Del año:">
+                                </label>
+                            </div>
+                            <div class="column is-3">
+                                <label>Al año:
+                                    <input name="secundaria_al_ano" class="input is-medium" required type="number" minlength="4" min="1950" max="2050" placeholder="Al año:">
+                                </label>
+                            </div>
+                            <div class="column is-6">
+                                <label>Titulo Obtenido <br />
+                                    <div class="select">
+                                        <select name="titulo_secundaria" required>
+                                            <option value="Certificado">Certificado</option>
+                                            <option value="Titulo">Titulo</option>
+                                            <option value="Carta de pasante">Carta de pasante</option>
+                                        </select>
+                                    </div>
+                                </label>
+                            </div>
+
+                            <!-- Escolaridad Bachillerato -->
+
+                            <div class="column is-12">
+                                <div class="has-text">
+                                    <h2 class="title is-6">Bachillerato</h2>
+                                </div>
+                            </div>
+                            <div class="column is-6">
+                                <label>Nombre
+                                    <input name="bachillerato_nombre" class="input is-medium" required type="text" placeholder="Nombre">
+                                </label>
+                            </div>
+                            <div class="column is-6">
+                                <label>Domicilio
+                                    <input name="bachillerato_domicilio" class="input is-medium" required type="text" placeholder="Domicilio">
+                                </label>
+                            </div>
+                            <div class="column is-3">
+                                <label>Del año:
+                                    <input name="bachillerato_de_ano" class="input is-medium" required type="number" minlength="4" min="1950" max="2050" placeholder="Del año:">
+                                </label>
+                            </div>
+                            <div class="column is-3">
+                                <label>Al año:
+                                    <input name="bachillerato_al_ano" class="input is-medium" required type="number" minlength="4" min="1950" max="2050" placeholder="Al año:">
+                                </label>
+                            </div>
+                            <div class="column is-6">
+                                <label>Titulo Obtenido <br />
+                                    <div class="select">
+                                        <select name="titulo_bachillerato" required>
+                                            <option value="Carrera trunca">Carrera trunca</option>
+                                            <option value="Certificado">Certificado</option>
+                                            <option value="Titulo">Titulo</option>
+                                            <option value="Carta de pasante">Carta de pasante</option>
+                                        </select>
+                                    </div>
+                                </label>
+                            </div>
+
+                            <!-- Escolaridad Universidad -->
+
+                            <div class="column is-12">
+                                <div class="has-text">
+                                    <h2 class="title is-6">Universidad</h2>
+                                </div>
+                            </div>
+                            <div class="column is-6">
+                                <label>Nombre
+                                    <input name="universidad_nombre" class="input is-medium" type="text" placeholder="Nombre">
+                                </label>
+                            </div>
+                            <div class="column is-6">
+                                <label>Domicilio
+                                    <input name="universidad_domicilio" class="input is-medium" type="text" placeholder="Domicilio">
+                                </label>
+                            </div>
+                            <div class="column is-3">
+                                <label>Del año:
+                                    <input name="universidad_de_ano" class="input is-medium" type="number" minlength="4" min="1950" max="2050" placeholder="Del año:">
+                                </label>
+                            </div>
+                            <div class="column is-3">
+                                <label>Al año:
+                                    <input name="universidad_al_ano" class="input is-medium" type="number" minlength="4" min="1950" max="2050" placeholder="Al año:">
+                                </label>
+                            </div>
+                            <div class="column is-6">
+                                <label>Titulo Obtenido <br />
+                                    <div class="select">
+                                        <select name="titulo_universidad">
+                                            <option value="Carrera trunca">Carrera trunca</option>
+                                            <option value="Certificado">Certificado</option>
+                                            <option value="Titulo">Titulo</option>
+                                            <option value="Carta de pasante">Carta de pasante</option>
+                                        </select>
+                                    </div>
+                                </label>
+                            </div>
+
+                            <!-- Escolaridad Actual -->
+
+                            <div class="column is-12">
+                                <div class="has-text">
+                                    <h2 class="title is-6">Estudios que estas efectuando en la actualidad</h2>
+                                </div>
+                            </div>
+                            <div class="column is-6">
+                                <label>Escuela
+                                    <input name="estudio_actual_nombre" class="input is-medium" type="text" placeholder="Escuela">
+                                </label>
+                            </div>
+                            <div class="column is-6">
+                                <label>Horario
+                                    <input name="estudio_actual_horario" class="input is-medium" type="text" placeholder="Horario">
+                                </label>
+                            </div>
+                            <div class="column is-6">
+                                <label>Curso o carrera
+                                    <input name="estudio_actual_cruso" class="input is-medium" type="text" placeholder="Curso o carrera">
+                                </label>
+                            </div>
+                            <div class="column is-6">
+                                <label>Grado
+                                    <input name="estudio_actual_grado" class="input is-medium" type="text" placeholder="Grado">
+                                </label>
+                            </div>
+
+                            <!-- Conocimientos generales Titulo -->
+
+                            <div class="column is-12">
+                                <div class="has-text-centered">
+                                    <h2 class="title is-5">Conocimientos generales</h2>
+                                </div>
+                            </div>
+
+                            <!-- Conocimientos generales -->
+
+                            <div class="column is-6">
+                                <label>Que idiomas habla
+                                    <input name="idiomas" class="input is-medium" type="text" placeholder="Que idiomas habla">
+                                </label>
+                            </div>
+                            <div class="column is-6">
+                                <label>Funciones de oficina que domina
+                                    <input name="funciones_oficina" class="input is-medium" type="text" placeholder="Funciones de oficina que domina">
+                                </label>
+                            </div>
+                            <div class="column is-6">
+                                <label>Maquina de oficina o taller que sepa manejar
+                                    <input name="maquinas" class="input is-medium" required type="text" placeholder="Maquina de oficina o taller que sepa manejar">
+                                </label>
+                            </div>
+                            <div class="column is-6">
+                                <label>Software que conoce
+                                    <input name="software" class="input is-medium" type="text" placeholder="Software que conoce">
+                                </label>
+                            </div>
+                            <div class="column is-12">
+                                <label>Otros trabajos o funcines que domine
+                                    <input name="otras_funciones" class="input is-medium" required type="text" placeholder="Otros trabajos o funcines que domine">
+                                </label>
+                            </div>
+
+                            <!-- Empleo actual y anteriores Titulo -->
+
+                            <div class="column is-12">
+                                <div class="has-text-centered">
+                                    <h2 class="title is-5">Empleo actual y anteriores</h2>
+                                </div>
+                            </div>
+
+                            <!-- Empleo actual o anterior -->
+
+                            <div class="column is-12">
+                                <div class="has-text">
+                                    <h2 class="title is-6">Empleo actual o anterior</h2>
+                                </div>
+                            </div>
+                            <div class="column is-4 is-flex is-align-items-center">
+                                <div class="has-text">
+                                    <h2 class="title is-6">Tiempo que presto sus servicios:</h2>
+                                </div>
+                            </div>
+                            <div class="column is-4">
+                                <label>De:
+                                    <input name="empleo_actual_de" class="input is-medium" required type="date" placeholder="Del año:">
+                                </label>
+                            </div>
+                            <div class="column is-4">
+                                <label>A:
+                                    <input name="empleo_actual_a" class="input is-medium" required type="date" placeholder="Al año:">
+                                </label>
+                            </div>
+                            <div class="column is-4">
+                                <label>Nombre de la compañia
+                                    <input name="empleo_actual_nombre" class="input is-medium" required type="text" placeholder="Nombre de la compañia">
+                                </label>
+                            </div>
+                            <div class="column is-4">
+                                <label>Dirección
+                                    <input name="empleo_actual_direccion" class="input is-medium" required type="text" placeholder="Dirección">
+                                </label>
+                            </div>
+                            <div class="column is-4">
+                                <label>Teléfono
+                                    <input name="empleo_actual_tel" class="input is-medium" required type="tel" placeholder="Teléfono">
+                                </label>
+                            </div>
+                            <div class="column is-4">
+                                <label>Puesto desempeñado
+                                    <input name="empleo_actual_puesto" class="input is-medium" required type="Text" placeholder="Puesto desempeñado">
+                                </label>
+                            </div>
+                            <div class="column is-4">
+                                <label>Sueldo mensual inicial
+                                    <input name="empleo_actual_sueldo_inicial" class="input is-medium" required type="number" min="0" placeholder="Sueldo mensual inicial">
+                                </label>
+                            </div>
+                            <div class="column is-4">
+                                <label>Sueldo mensual final
+                                    <input name="empleo_actual_sueldo_final" class="input is-medium" required type="number" min="0" placeholder="Sueldo mensual final">
+                                </label>
+                            </div>
+                            <div class="column is-12">
+                                <label>Motivo separación
+                                    <input name="empleo_actual_separacion" class="input is-medium" required type="text" placeholder="Motivo separación">
+                                </label>
+                            </div>
+                            <div class="column is-4">
+                                <label>Nombre de su jefe directo
+                                    <input name="empleo_actual_jefe_directo" class="input is-medium" type="text" placeholder="Nombre de su jefe directo">
+                                </label>
+                            </div>
+                            <div class="column is-4">
+                                <label>Puesto de su jefe directo
+                                    <input name="empleo_actual_jefe_directo_puesto" class="input is-medium" type="text" placeholder="Puesto de su jefe directo">
+                                </label>
+                            </div>
+                            <div class="column is-4">
+                                ¿Podemos solicitar informes de usted?
+                                <div class="control">
+                                    <label class="radio">
+                                        <input type="radio" required name="empleo_actual_informes" value="Si">
+                                        Si
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" required name="empleo_actual_informes" value="No">
+                                        No
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Empleo anterior 1 -->
+
+                            <div class="column is-12">
+                                <div class="has-text">
+                                    <h2 class="title is-6">Empleo anterior</h2>
+                                </div>
+                            </div>
+                            <div class="column is-4 is-flex is-align-items-center">
+                                <div class="has-text">
+                                    <h2 class="title is-6">Tiempo que presto sus servicios:</h2>
+                                </div>
+                            </div>
+                            <div class="column is-4">
+                                <label>De:
+                                    <input name="empleo_anterior1_de" class="input is-medium" required type="date" placeholder="Del año:">
+                                </label>
+                            </div>
+                            <div class="column is-4">
+                                <label>A:
+                                    <input name="empleo_anterior1_a" class="input is-medium" required type="date" placeholder="Al año:">
+                                </label>
+                            </div>
+                            <div class="column is-4">
+                                <label>Nombre de la compañia
+                                    <input name="empleo_anterior1_nombre" class="input is-medium" required type="text" placeholder="Nombre de la compañia">
+                                </label>
+                            </div>
+                            <div class="column is-4">
+                                <label>Dirección
+                                    <input name="empleo_anterior1_direccion" class="input is-medium" required type="text" placeholder="Dirección">
+                                </label>
+                            </div>
+                            <div class="column is-4">
+                                <label>Teléfono
+                                    <input name="empleo_anterior1_tel" class="input is-medium" required type="tel" placeholder="Teléfono">
+                                </label>
+                            </div>
+                            <div class="column is-4">
+                                <label>Puesto desempeñado
+                                    <input name="empleo_anterior1_puesto" class="input is-medium" required type="Text" placeholder="Puesto desempeñado">
+                                </label>
+                            </div>
+                            <div class="column is-4">
+                                <label>Sueldo mensual inicial
+                                    <input name="empleo_anterior1_sueldo_inicial" class="input is-medium" required type="number" min="0" placeholder="Sueldo mensual inicial">
+                                </label>
+                            </div>
+                            <div class="column is-4">
+                                <label>Sueldo mensual final
+                                    <input name="empleo_anterior1_sueldo_final" class="input is-medium" required type="number" min="0" placeholder="Sueldo mensual final">
+                                </label>
+                            </div>
+                            <div class="column is-12">
+                                <label>Motivo separación
+                                    <input name="empleo_anterior1_separacion" class="input is-medium" required type="text" placeholder="Motivo separación">
+                                </label>
+                            </div>
+                            <div class="column is-4">
+                                <label>Nombre de su jefe directo
+                                    <input name="empleo_anterior1_jefe_directo" class="input is-medium" type="text" placeholder="Nombre de su jefe directo">
+                                </label>
+                            </div>
+                            <div class="column is-4">
+                                <label>Puesto de su jefe directo
+                                    <input name="empleo_anterior1_jefe_directo_puesto" class="input is-medium" type="text" placeholder="Puesto de su jefe directo">
+                                </label>
+                            </div>
+                            <div class="column is-4">
+                                ¿Podemos solicitar informes de usted?
+                                <div class="control">
+                                    <label class="radio">
+                                        <input type="radio" required name="empleo_anterior1_informes" value="Si">
+                                        Si
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" required name="empleo_anterior1_informes" value="No">
+                                        No
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Empleo anterior 2 -->
+
+                            <div class="column is-12">
+                                <div class="has-text">
+                                    <h2 class="title is-6">Empleo anterior</h2>
+                                </div>
+                            </div>
+                            <div class="column is-4 is-flex is-align-items-center">
+                                <div class="has-text">
+                                    <h2 class="title is-6">Tiempo que presto sus servicios:</h2>
+                                </div>
+                            </div>
+                            <div class="column is-4">
+                                <label>De:
+                                    <input name="empleo_anterior2_de" class="input is-medium" required type="date" placeholder="Del año:">
+                                </label>
+                            </div>
+                            <div class="column is-4">
+                                <label>A:
+                                    <input name="empleo_anterior2_a" class="input is-medium" required type="date" placeholder="Al año:">
+                                </label>
+                            </div>
+                            <div class="column is-4">
+                                <label>Nombre de la compañia
+                                    <input name="empleo_anterior2_nombre" class="input is-medium" required type="text" placeholder="Nombre de la compañia">
+                                </label>
+                            </div>
+                            <div class="column is-4">
+                                <label>Dirección
+                                    <input name="empleo_anterior2_direccion" class="input is-medium" required type="text" placeholder="Dirección">
+                                </label>
+                            </div>
+                            <div class="column is-4">
+                                <label>Teléfono
+                                    <input name="empleo_anterior2_tel" class="input is-medium" required type="tel" placeholder="Teléfono">
+                                </label>
+                            </div>
+                            <div class="column is-4">
+                                <label>Puesto desempeñado
+                                    <input name="empleo_anterior2_puesto" class="input is-medium" required type="Text" placeholder="Puesto desempeñado">
+                                </label>
+                            </div>
+                            <div class="column is-4">
+                                <label>Sueldo mensual inicial
+                                    <input name="empleo_anterior2_sueldo_inicial" class="input is-medium" required type="number" min="0" placeholder="Sueldo mensual inicial">
+                                </label>
+                            </div>
+                            <div class="column is-4">
+                                <label>Sueldo mensual final
+                                    <input name="empleo_anterior2_sueldo_final" class="input is-medium" required type="number" min="0" placeholder="Sueldo mensual final">
+                                </label>
+                            </div>
+                            <div class="column is-12">
+                                <label>Motivo separación
+                                    <input name="empleo_anterior2_separacion" class="input is-medium" required type="text" placeholder="Motivo separación">
+                                </label>
+                            </div>
+                            <div class="column is-4">
+                                <label>Nombre de su jefe directo
+                                    <input name="empleo_anterior2_jefe_directo" class="input is-medium" type="text" placeholder="Nombre de su jefe directo">
+                                </label>
+                            </div>
+                            <div class="column is-4">
+                                <label>Puesto de su jefe directo
+                                    <input name="empleo_anterior2_jefe_directo_puesto" class="input is-medium" type="text" placeholder="Puesto de su jefe directo">
+                                </label>
+                            </div>
+                            <div class="column is-4">
+                                ¿Podemos solicitar informes de usted?
+                                <div class="control">
+                                    <label class="radio">
+                                        <input type="radio" required name="empleo_anterior2_informes" value="Si">
+                                        Si
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" required name="empleo_anterior2_informes" value="No">
+                                        No
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Empleo anterior 3 -->
+
+                            <div class="column is-12">
+                                <div class="has-text">
+                                    <h2 class="title is-6">Empleo anterior</h2>
+                                </div>
+                            </div>
+                            <div class="column is-4 is-flex is-align-items-center">
+                                <div class="has-text">
+                                    <h2 class="title is-6">Tiempo que presto sus servicios:</h2>
+                                </div>
+                            </div>
+                            <div class="column is-4">
+                                <label>De:
+                                    <input name="empleo_anterior3_de" class="input is-medium" type="date" placeholder="Del año:">
+                                </label>
+                            </div>
+                            <div class="column is-4">
+                                <label>A:
+                                    <input name="empleo_anterior3_a" class="input is-medium" type="date" placeholder="Al año:">
+                                </label>
+                            </div>
+                            <div class="column is-4">
+                                <label>Nombre de la compañia
+                                    <input name="empleo_anterior3_nombre" class="input is-medium" type="text" placeholder="Nombre de la compañia">
+                                </label>
+                            </div>
+                            <div class="column is-4">
+                                <label>Dirección
+                                    <input name="empleo_anterior3_direccion" class="input is-medium" type="text" placeholder="Dirección">
+                                </label>
+                            </div>
+                            <div class="column is-4">
+                                <label>Teléfono
+                                    <input name="empleo_anterior3_tel" class="input is-medium" type="tel" placeholder="Teléfono">
+                                </label>
+                            </div>
+                            <div class="column is-4">
+                                <label>Puesto desempeñado
+                                    <input name="empleo_anterior3_puesto" class="input is-medium" type="Text" placeholder="Puesto desempeñado">
+                                </label>
+                            </div>
+                            <div class="column is-4">
+                                <label>Sueldo mensual inicial
+                                    <input name="empleo_anterior3_sueldo_inicial" class="input is-medium" type="number" min="0" placeholder="Sueldo mensual inicial">
+                                </label>
+                            </div>
+                            <div class="column is-4">
+                                <label>Sueldo mensual final
+                                    <input name="empleo_anterior3_sueldo_final" class="input is-medium" type="number" min="0" placeholder="Sueldo mensual final">
+                                </label>
+                            </div>
+                            <div class="column is-12">
+                                <label>Motivo separación
+                                    <input name="empleo_anterior3_separacion" class="input is-medium" type="text" placeholder="Motivo separación">
+                                </label>
+                            </div>
+                            <div class="column is-4">
+                                <label>Nombre de su jefe directo
+                                    <input name="empleo_anterior3_jefe_directo" class="input is-medium" type="text" placeholder="Nombre de su jefe directo">
+                                </label>
+                            </div>
+                            <div class="column is-4">
+                                <label>Puesto de su jefe directo
+                                    <input name="empleo_anterior3_jefe_directo_puesto" class="input is-medium" type="text" placeholder="Puesto de su jefe directo">
+                                </label>
+                            </div>
+                            <div class="column is-4">
+                                ¿Podemos solicitar informes de usted?
+                                <div class="control">
+                                    <label class="radio">
+                                        <input type="radio" name="empleo_anterior3_informes" value="Si">
+                                        Si
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="empleo_anterior3_informes" value="No">
+                                        No
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Referencias Titulo -->
+
+                            <div class="column is-12">
+                                <div class="has-text-centered">
+                                    <h2 class="title is-5">Referencias personales (Favor de no incluir a jefes anteriores o familiares)</h2>
+                                </div>
+                            </div>
+
+                            <!-- Referencia 1 -->
+
+                            <div class="column is-3">
+                                <label>Nombre
+                                    <input name="referencia1_nombre" class="input is-medium" required type="text" placeholder="Nombre">
+                                </label>
+                            </div>
+                            <div class="column is-3">
+                                <label>Domicilio
+                                    <input name="referencia1_domicilio" class="input is-medium" required type="text" placeholder="Domicilio">
+                                </label>
+                            </div>
+                            <div class="column is-3">
+                                <label>Teléfono
+                                    <input name="referencia1_tel" class="input is-medium" required type="tel" placeholder="Teléfono">
+                                </label>
+                            </div>
+                            <div class="column is-3">
+                                <label>Tiempo de conocerlo
+                                    <input name="referencia1_tiempo" class="input is-medium" required type="text" placeholder="Tiempo de conocerlo">
+                                </label>
+                            </div>
+
+                            <!-- Referencia 2 -->
+
+                            <div class="column is-3">
+                                <label>Nombre
+                                    <input name="referencia2_nombre" class="input is-medium" required type="text" placeholder="Nombre">
+                                </label>
+                            </div>
+                            <div class="column is-3">
+                                <label>Domicilio
+                                    <input name="referencia2_domicilio" class="input is-medium" required type="text" placeholder="Domicilio">
+                                </label>
+                            </div>
+                            <div class="column is-3">
+                                <label>Teléfono
+                                    <input name="referencia2_tel" class="input is-medium" required type="tel" placeholder="Teléfono">
+                                </label>
+                            </div>
+                            <div class="column is-3">
+                                <label>Tiempo de conocerlo
+                                    <input name="referencia2_tiempo" class="input is-medium" required type="text" placeholder="Tiempo de conocerlo">
+                                </label>
+                            </div>
+
+                            <!-- Referencia 3 -->
+
+                            <div class="column is-3">
+                                <label>Nombre
+                                    <input name="referencia3_nombre" class="input is-medium" required type="text" placeholder="Nombre">
+                                </label>
+                            </div>
+                            <div class="column is-3">
+                                <label>Domicilio
+                                    <input name="referencia3_domicilio" class="input is-medium" required type="text" placeholder="Domicilio">
+                                </label>
+                            </div>
+                            <div class="column is-3">
+                                <label>Teléfono
+                                    <input name="referencia3_tel" class="input is-medium" required type="tel" placeholder="Teléfono">
+                                </label>
+                            </div>
+                            <div class="column is-3">
+                                <label>Tiempo de conocerlo
+                                    <input name="referencia3_tiempo" class="input is-medium" required type="text" placeholder="Tiempo de conocerlo">
+                                </label>
+                            </div>
+
+                            <!-- Datos Economicos Titulo -->
+
+                            <div class="column is-12">
+                                <div class="has-text-centered">
+                                    <h2 class="title is-5">Datos económicos</h2>
+                                </div>
+                            </div>
+
+                            <!-- Datos Economicos -->
+
+                            <div class="column is-3">
+                                ¿Tiene usted otros ingresos?
+                                <div class="control">
+                                    <label class="radio">
+                                        <input type="radio" required name="otros_ingresos" value="Si">
+                                        Si
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" required name="otros_ingresos" value="No">
+                                        No
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="column is-3">
+                                <label>Importe mensual
+                                    <input name="otros_ingresos_monto" class="input is-medium" type="number" min="0" placeholder="Importe mensual">
+                                </label>
+                            </div>
+                            <div class="column is-3">
+                                ¿Su cónyuge trabaja?
+                                <div class="control">
+                                    <label class="radio">
+                                        <input type="radio" name="conyuge_trabaja" value="Si">
+                                        Si
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="conyuge_trabaja" value="No">
+                                        No
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="column is-3">
+                                <label>Percepción mensual
+                                    <input name="conyuge_trabaja_monto" class="input is-medium" type="number" min="0" placeholder="Importe mensual">
+                                </label>
+                            </div>
+                            <div class="column is-3">
+                                ¿Vive en casa propia?
+                                <div class="control">
+                                    <label class="radio">
+                                        <input type="radio" required name="casa_propia" value="Si">
+                                        Si
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" required name="casa_propia" value="No">
+                                        No
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="column is-3">
+                                <label>Valor aproximado
+                                    <input name="casa_propia_valor" class="input is-medium" type="number" min="0" placeholder="Valor aproximado">
+                                </label>
+                            </div>
+                            <div class="column is-3">
+                                ¿Paga renta?
+                                <div class="control">
+                                    <label class="radio">
+                                        <input type="radio" name="renta" value="Si">
+                                        Si
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="renta" value="No">
+                                        No
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="column is-3">
+                                <label>Renta mensual
+                                    <input name="renta_monto" class="input is-medium" type="number" min="0" placeholder="Renta mensual">
+                                </label>
+                            </div>
+                            <div class="column is-4">
+                                ¿Tiene automovil propio?
+                                <div class="control">
+                                    <label class="radio">
+                                        <input type="radio" required name="automovil" value="Si">
+                                        Si
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" required name="automovil" value="No">
+                                        No
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="column is-4">
+                                <label>Marca
+                                    <input name="automovil_marca" class="input is-medium" type="text" placeholder="Marca">
+                                </label>
+                            </div>
+                            <div class="column is-4">
+                                <label>Modelo
+                                    <input name="automovil_modelo" class="input is-medium" type="text" placeholder="Modelo">
+                                </label>
+                            </div>
+                            <div class="column is-4">
+                                ¿Tiene deudas?
+                                <div class="control">
+                                    <label class="radio">
+                                        <input type="radio" required name="deudas" value="Si">
+                                        Si
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" required name="deudas" value="No">
+                                        No
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="column is-4">
+                                <label>¿Con quién?
+                                    <input name="deudas_quien" class="input is-medium" type="text" placeholder="¿Con quién?">
+                                </label>
+                            </div>
+                            <div class="column is-4">
+                                <label>Importe
+                                    <input name="deudas_importe" class="input is-medium" type="number" min="0" placeholder="Importe">
+                                </label>
+                            </div>
+                            <div class="column is-6">
+                                <label>¿Cuánto abona mensualmente?
+                                    <input name="deudas_abono" class="input is-medium" type="number" min="0" placeholder="¿Cuánto abona mensualmente?">
+                                </label>
+                            </div>
+                            <div class="column is-6">
+                                <label>¿A cuánto ascienden sus gastos mensuales?
+                                    <input name="gastos_mensuales" class="input is-medium" type="number" min="0" placeholder="¿A cuánto ascienden sus gastos mensuales?">
+                                </label>
+                            </div>
+
+                            <!-- Datos Generales Titulo -->
+
+                            <div class="column is-12">
+                                <div class="has-text-centered">
+                                    <h2 class="title is-5">Datos generales</h2>
+                                </div>
+                            </div>
+
+                            <!-- Datos Generales -->
+                            <div class="column is-6">
+                                ¿Cómo supo de este empleo?
+                                <div class="control">
+                                    <label class="radio">
+                                        <input type="radio" required name="entero_empleo" value="Facebook">
+                                        Facebook
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" required name="entero_empleo" value="Indeed">
+                                        Indeed
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" required name="entero_empleo" value="Amigo o conocido">
+                                        Amigo o conocido
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" required name="entero_empleo" value="Otro">
+                                        Otro
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="column is-6">
+                                ¿Tiene parientes trabajando en esta empresa?
+                                <div class="control">
+                                    <label class="radio">
+                                        <input type="radio" required name="parientes_en_empresa" value="Si">
+                                        Si
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" required name="parientes_en_empresa" value="No">
+                                        No
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="column is-3">
+                                ¿Ha sido afianzado?
+                                <div class="control">
+                                    <label class="radio">
+                                        <input type="radio" required name="afianzado" value="Si">
+                                        Si
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" required name="afianzado" value="No">
+                                        No
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="column is-3">
+                                ¿Ha estado afiliado a algun sindicato?
+                                <div class="control">
+                                    <label class="radio">
+                                        <input type="radio" required name="sindicato" value="Si">
+                                        Si
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" required name="sindicato" value="No">
+                                        No
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="column is-3">
+                                ¿Tiene seguro de vida?
+                                <div class="control">
+                                    <label class="radio">
+                                        <input type="radio" required name="seguro_vida" value="Si">
+                                        Si
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" required name="seguro_vida" value="No">
+                                        No
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="column is-3">
+                                ¿Puede viajar?
+                                <div class="control">
+                                    <label class="radio">
+                                        <input type="radio" required name="viajar" value="Si">
+                                        Si
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" required name="viajar" value="No">
+                                        No
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="column is-3">
+                                ¿Esta dispuesto a cambiar su lugar de residencia?
+                                <div class="control">
+                                    <label class="radio">
+                                        <input type="radio" required name="cambiar_residencia" value="Si">
+                                        Si
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" required name="cambiar_residencia" value="No">
+                                        No
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="column is-9">
+                                <label>Fecha en que puede presentarse a trabajar
+                                    <input name="presentarse_trabajar" class="input is-medium" required type="text" placeholder="Fecha en que puede presentarse a trabajar">
+                                </label>
+                            </div>
+
+                            <!-- Es verdad lo juro -->
+                            <div class="column is-12">
+                                <label class="checkbox title is-5">
+                                    <input class="mr-3" type="checkbox" name="deveritas" required>
+                                    <strong>La información proporcionada en esta solicitud de empleo será utilizada con fines de participar en el proceso de selección para la vacante solicitada en la presente, acepto que toda la información que proporcione es verdadera.</strong>
+                                </label>
+                            </div>
+
+                            <div class="column is-12"  :class="{
+                                'is-hidden': alertsHidden || !sendedMail
+                            }">
+                                <article class="message is-success">
+                                    <div class="message-body">
+                                        <strong>Solicitud enviada correctamente</strong>, te contactaremos en cuanto nos sea posible.
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="column is-12"  :class="{
+                                'is-hidden': alertsHidden || sendedMail
+                            }">
+                                <article class="message is-danger">
+                                    <div class="message-body">
+                                        <strong>Tuvimos problemas al enviar tu solicitud</strong>, reintenta nuevamente.
+                                    </div>
+                                </article>
+                            </div>
+
+                            <div class="column is-12">
+                                <div class="form-footer has-text-right mt-10">
+                                    <button class="button cta is-large primary-btn form-button raised is-clear">Enviar solicitud</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
