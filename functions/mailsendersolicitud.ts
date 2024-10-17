@@ -14,8 +14,8 @@ const handler: Handler = async (event, context) => {
     const transporter = nodemailer.createTransport({
         host: host,
         port: port,
-        secure: false,
         auth: {
+            type: 'OAuth2',
             user: user,
             pass: pass
         },
