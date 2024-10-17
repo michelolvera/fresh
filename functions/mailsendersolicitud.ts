@@ -523,7 +523,7 @@ const handler: Handler = async (event, context) => {
         </tr>
         <tr>
             <td colspan="4"><strong>La información proporcionada en esta solicitud de empleo será utilizada con fines de participar en el proceso de selección para la vacante solicitada en la presente, acepto que toda la información que proporcione es verdadera.:</strong></td>
-            <td>${messageData.deveritas}</td>
+            <td>${messageData.deveritas == 'on' ? 'Sí' : 'No'}</td>
         </tr>
     </table>`
 
