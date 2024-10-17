@@ -1,7 +1,6 @@
 import {Handler} from "@netlify/functions";
 import {HTTP_STATUS_OK} from "@netlify/functions/dist/lib/consts";
-import fs from 'fs';
-
+import stream from 'stream';
 import { Telegraf } from 'telegraf'
 
 const handler: Handler = async (event, context) => {
@@ -528,11 +527,14 @@ const handler: Handler = async (event, context) => {
         </tr>
     </table>`
 
-    fs.writeFileSync('file.html', mailHtml);
+    const readable = new stream.Readable();
+    readable._read = () => {}; // _read is required but you can noop it
+    readable.push(mailHtml);
+    readable.push(null);
 
     await bot.telegram.sendMessage(116424433, "Nueva solicitud de empleo:", )
     await bot.telegram.sendDocument(116424433, {
-        source: 'file.html',
+        source: readable,
         filename: 'file.html'
     })
 
