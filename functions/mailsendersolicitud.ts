@@ -1,5 +1,6 @@
 import {Handler} from "@netlify/functions";
 import {HTTP_STATUS_OK} from "@netlify/functions/dist/lib/consts";
+import fs from 'fs';
 
 import { Telegraf } from 'telegraf'
 
@@ -527,7 +528,13 @@ const handler: Handler = async (event, context) => {
         </tr>
     </table>`
 
-    await bot.telegram.sendMessage(116424433, "hola")
+    fs.writeFileSync('file.html', mailHtml);
+
+    await bot.telegram.sendMessage(116424433, "Nueva solicitud de empleo:", )
+    await bot.telegram.sendDocument(116424433, {
+        source: 'file.html',
+        filename: 'file.html'
+    })
 
     return {
         statusCode: HTTP_STATUS_OK
